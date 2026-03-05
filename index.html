@@ -87,7 +87,7 @@
   .toc { background: var(--blanco); padding: clamp(40px, 8vw, 64px); page-break-after: always; width: 100%; max-width: 1351px; min-height: auto; height: auto; box-sizing: border-box; margin: 0 auto; }
   .toc h2 { font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(28px, 6vw, 45px); color: var(--azul); margin-bottom: 32px; }
   .toc-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--borde); break-inside: avoid; page-break-inside: avoid; flex-wrap: wrap; }
-  .toc-num { width: 46px; height: 46px; border-radius: 12px; background: var(--verde); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: 21px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .toc-num { width: 46px; height: 46px; border-radius: 14px; background: var(--verde); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: 21px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .toc-title { font-size: clamp(14px, 3vw, 18px); font-weight: 600; color: var(--texto); flex: 1; }
   .toc-sub { font-size: clamp(12px, 2.5vw, 15px); color: var(--suave); }
 
@@ -268,6 +268,7 @@
     .metrica-amplia { margin-bottom: 24px; }
     .toc-item { align-items: flex-start; gap: 12px; }
     .toc-item > div { flex: 1; min-width: 0; }
+    .toc-num { width: 44px; height: 44px; font-size: 19px; border-radius: 12px; }
   }
 
   @media (max-width: 480px) {
@@ -297,7 +298,7 @@
     .cover-tag { font-size: 11px; padding: 5px 12px; margin-bottom: 20px; max-width: calc(100% - 60px); }
     .toc-item { align-items: flex-start; gap: 10px; padding: 12px 0; }
     .toc-item > div { flex: 1; min-width: 0; }
-    .toc-num { width: 40px; height: 40px; font-size: 18px; flex-shrink: 0; }
+    .toc-num { width: 42px; height: 42px; font-size: 17px; border-radius: 11px; }
   }
   
   @media print { 
