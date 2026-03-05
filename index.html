@@ -266,6 +266,8 @@
     }
     .metricas-grid { grid-template-columns: 1fr; }
     .metrica-amplia { margin-bottom: 24px; }
+    .toc-item { align-items: flex-start; gap: 12px; }
+    .toc-item > div { flex: 1; min-width: 0; }
   }
 
   @media (max-width: 480px) {
@@ -293,6 +295,9 @@
     .back-cover .url { width: 100%; max-width: 320px; justify-content: center; }
     .doc-isotipo { width: 44px; top: 8px; right: 8px; opacity: 0.85; }
     .cover-tag { font-size: 11px; padding: 5px 12px; margin-bottom: 20px; max-width: calc(100% - 60px); }
+    .toc-item { align-items: flex-start; gap: 10px; padding: 12px 0; }
+    .toc-item > div { flex: 1; min-width: 0; }
+    .toc-num { width: 40px; height: 40px; font-size: 18px; flex-shrink: 0; }
   }
   
   @media print { 
