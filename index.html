@@ -116,6 +116,15 @@
   .captura img { width: 100%; display: block; height: auto; }
   .captura-label { background: var(--azul); color: var(--blanco); font-size: clamp(10px, 2vw, 11px); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: clamp(6px, 1.5vw, 6px) clamp(12px, 2vw, 14px); display: flex; align-items: center; gap: 6px; }
 
+  /* TABLAS/GRILLAS ESPECIALES */
+  .tabla-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; }
+  .tabla-scroll > table { min-width: 680px; }
+  .metricas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .metrica-amplia { width: min(600px, 100%); margin: 0 auto 35px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .metrica-amplia .captura-label { width: 100%; }
+  .metrica-amplia img { width: 100%; height: auto; }
+  .back-logo { width: min(500px, 100%); max-width: 100%; height: auto; margin-top: 0; margin-bottom: 35px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28)); }
+
   /* CALLOUT */
   .callout { border-radius: 12px; padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 20px); margin: 16px 0; font-size: clamp(12px, 2.5vw, 13.5px); display: flex; align-items: flex-start; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
   .callout.tip { background: var(--fondo); border-left: 4px solid var(--verde); color: var(--azul3); }
@@ -228,6 +237,10 @@
     .cover, .toc, .page, .back-cover { 
       padding: 40px 24px !important;
     }
+    .cover, .back-cover {
+      justify-content: flex-start;
+      padding-top: calc(40px + env(safe-area-inset-top, 0px)) !important;
+    }
     .page-footer { left: 24px !important; right: 24px !important; }
     div#seccion-9 { padding-left: 24px !important; padding-right: 24px !important; }
     div#seccion-10 { padding-left: 24px !important; padding-right: 24px !important; }
@@ -239,11 +252,28 @@
     .paso p { font-size: 13px; }
     table.guia { font-size: 12px; }
     table.guia th, table.guia td { padding: 10px 12px; }
+    table.guia {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    table.guia th,
+    table.guia td {
+      white-space: normal;
+      min-width: 170px;
+    }
+    .metricas-grid { grid-template-columns: 1fr; }
+    .metrica-amplia { margin-bottom: 24px; }
   }
 
   @media (max-width: 480px) {
     .cover, .toc, .page, .back-cover { 
       padding: 24px 16px !important;
+    }
+    .cover, .back-cover {
+      justify-content: flex-start;
+      padding-top: calc(24px + env(safe-area-inset-top, 0px)) !important;
     }
     .page-footer { left: 16px !important; right: 16px !important; font-size: 10px; }
     div#seccion-9 { padding-left: 16px !important; padding-right: 16px !important; }
@@ -256,6 +286,10 @@
     .callout { gap: 10px; padding: 12px 16px; }
     table.guia { font-size: 11px; }
     table.guia th, table.guia td { padding: 8px 10px; }
+    .tabla-scroll > table { min-width: 620px; }
+    .back-cover h2 { font-size: clamp(28px, 12vw, 40px); }
+    .back-cover .url { width: 100%; max-width: 320px; justify-content: center; }
+    .doc-isotipo { width: 52px; top: 10px; right: 10px; }
   }
   
   @media print { 
@@ -888,6 +922,7 @@
 
       <div style="margin-bottom:32px;">
     <h3 style="margin-bottom:16px; color:var(--azul); font-size:18px;">Entendé los filtros disponibles</h3>
+    <div class="tabla-scroll">
     <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:1px solid var(--borde); border-radius:8px; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
@@ -944,6 +979,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
   
     <div class="callout info" style="margin-top:12px;">
@@ -965,6 +1001,7 @@
 
       <div style="margin-bottom:32px;">
     <h3 style="margin-bottom:16px; color:var(--azul); font-size:18px;">Entendé los filtros disponibles</h3>
+    <div class="tabla-scroll">
     <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:1px solid var(--borde); border-radius:8px; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
@@ -1011,9 +1048,10 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
   <p>En <strong>MÉTRICAS</strong>, vas a encontrar tres tipos de indicadores que te permiten evaluar distintos aspectos de tus clases.</p>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin: 16px 0;">
+    <div class="metricas-grid">
       <div>
         <div class="captura">
           <div class="captura-label">📸 Por tipo de evaluación</div>
@@ -1027,9 +1065,9 @@
         </div>
       </div>
     </div>
-     <div class="captura" style="width: 599.5px; height: 285.81px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 35px;">
-      <div class="captura-label" style="width: 599.5px;">📸 Por Estategias Metodológicas </div>
-      <img src="img/estrategias.png" alt="strategy" style="width: 599.5px; height: 265.81px;" />
+     <div class="captura metrica-amplia">
+      <div class="captura-label">📸 Por Estategias Metodológicas </div>
+      <img src="img/estrategias.png" alt="strategy" />
     </div>
     <p>Estas métricas te permiten reflexionar: ¿Estoy diversificando mis estrategias? ¿Qué tipo de evaluación predomina en mis clases?</p>
   </div>
@@ -1105,7 +1143,7 @@
   <div class="cover-dots"></div>
   <h2>¿Tenés alguna duda?</h2>
   <p>El equipo de Sabium está disponible para acompañarte en cada paso de la implementación.</p>
-  <img src="img/LOGO.png" alt="Soporte Sabium" style="width:500px; margin-top: 0px; margin-bottom: 35px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28));">
+  <img src="img/LOGO.png" alt="Soporte Sabium" class="back-logo">
   <a class="url sabium-link" href="https://wa.me/1170668346" target="_blank" rel="noopener noreferrer" style="margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px;">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     WhatsApp
